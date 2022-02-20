@@ -4,25 +4,24 @@ import main.metamodel.Machine;
 import main.metamodel.State;
 
 public class MachineInterpreter {
+	private Machine machine;
+	private State state;
 
 	public void run(Machine m) {
-		// TODO Auto-generated method stub
-		
+		machine = m;
+		state = machine.getInitialState();
 	}
 
 	public State getCurrentState() {
-		// TODO Auto-generated method stub
-		return null;
+		return state;
 	}
 
 	public void processEvent(String string) {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	public int getInteger(String string) {
-		// TODO Auto-generated method stub
-		return 0;
+		return machine.getIntegers().get(string);
 	}
 
 }
