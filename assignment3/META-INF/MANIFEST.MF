@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: assignment3
+Bundle-ManifestVersion: 2
+Bundle-Name: assignment3
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: assignment3; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
+ org.eclipse.xtend.lib;bundle-version="2.14.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: assignment3,
+ assignment3.validation,
+ assignment3.parser.antlr.internal,
+ assignment3.parser.antlr,
+ assignment3.services,
+ assignment3.math.util,
+ assignment3.scoping,
+ assignment3.generator,
+ assignment3.serializer,
+ assignment3.math,
+ assignment3.math.impl
+Import-Package: org.apache.log4j

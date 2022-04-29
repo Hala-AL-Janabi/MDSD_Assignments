@@ -1,0 +1,43 @@
+grammar assignment3.Math with org.eclipse.xtext.common.Terminals
+
+generate math "http://www.Math.assignment3"
+
+MathExp:
+	'program' name=ID
+	externals += External*
+	variables += VarBinding*
+;
+
+VarBinding:
+	'var' name=ID '=' expression=Exp
+;
+
+Exp returns Expression:
+	Factor (( {Plus.left=current} '+' | {Minus.left=current}  '-' ) right=Factor)*
+;
+
+Factor returns Expression:
+	Primary (({Mult.left=current} '*' | {Div.left=current}  '/'  ) right=Primary)*
+;
+
+Primary returns Expression:
+	{MathNumber} value=INT  | '(' Exp ')'  |  VariableUse | LetBinding
+;
+
+LetBinding:
+	'let' name=ID '=' binding=Exp 'in' body=Exp 'end'
+;
+
+Binding:
+	VarBinding | LetBinding
+;
+
+VariableUse:
+	ref = [Binding]
+;
+
+External:
+	'external' name=ID '('types+=ID?(',' types+=ID)*')'
+;
+
+
